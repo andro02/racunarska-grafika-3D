@@ -349,13 +349,13 @@ Mesh createSphereMesh(float radius = 1.0f, int sectors = 12, int stacks = 8)
         for (int j = 0; j < sectors; ++j, ++k1, ++k2) {
             if (i != 0) {
                 indices.push_back(k1);
-                indices.push_back(k2);
                 indices.push_back(k1 + 1);
+                indices.push_back(k2);
             }
             if (i != (stacks - 1)) {
                 indices.push_back(k1 + 1);
-                indices.push_back(k2);
                 indices.push_back(k2 + 1);
+                indices.push_back(k2);
             }
         }
     }
@@ -1132,7 +1132,7 @@ public:
     void drawBubbles(Shader& shader, Mesh& bubbleMesh)
     {
         shader.use();
-        shader.setVec4("uColor", glm::vec4(0.9f, 0.95f, 1.0f, 0.9f));
+        shader.setVec4("uColor", glm::vec4(0.9f, 0.95f, 1.0f, 0.7f));
 
         for (auto& b : bubbles) {
             glm::mat4 model = glm::mat4(1.0f);
